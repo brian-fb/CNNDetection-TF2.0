@@ -48,7 +48,7 @@ class ResNet(Model):
             res_blocks.add(BasicBlock(num_filter,stride=1))
         return res_blocks
     
-    def __init__(self, layer_dims, num_classes=5):
+    def __init__(self, layer_dims, num_classes=2):
         super(ResNet, self).__init__()
         
         scale = 1
