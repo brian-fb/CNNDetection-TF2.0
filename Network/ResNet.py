@@ -68,7 +68,7 @@ class ResNet(Model):
         self.avgpool=layers.GlobalAveragePooling2D()
         self.fc1=layers.Dense(1024,activation='relu')
         self.fc2=layers.Dense(512,activation='relu')
-        self.fc=layers.Dense(num_classes)
+        self.fc=layers.Dense(num_classes,activation='softmax')
         
     def call(self,x,training=None):
         x=self.pre_layer(x)
