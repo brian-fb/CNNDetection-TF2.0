@@ -11,10 +11,9 @@ def image_generator(train_split = 0.9, val_split = 0.01, split = 0.1, data_dir =
 	train_df = train_df.reset_index(drop = True)
 	val_df = val_df.reset_index(drop = True)
     
-	print(val_df)
     
-	training_gen = DataGenerator(file_index = df)
-	val_gen = DataGenerator(file_index = df)
+	training_gen = DataGenerator(file_index = df, root_dir = data_dir)
+	val_gen = DataGenerator(file_index = df, root_dir = data_dir)
     
 
     
