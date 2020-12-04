@@ -1,34 +1,33 @@
 import tensorflow as tf
 import pandas as pd
+from sklearn.model_selection import train_test_split
+from Data.DataPipe import DataGenerator
 
 # Use small_sample to choose if we want to split the whole data set into two exclusive training/validation set.
-def image_generator(train_split = 0.9, val_split = 0.01, data_dir = '../e4040-proj-data', small_sample = True):
-	img_gen = tf.keras.preprocessing.image.ImageDataGenerator(validation_split = train_split, rescale = 1./255)
-	val_gen = tf.keras.preprocessing.image.ImageDataGenerator(validation_split = val_split, rescale = 1.0/255)
+def image_generator(train_split = 0.9, val_split = 0.01, split = 0.1, data_dir = '../e4040-proj-data/', small_sample = True, seed = None):
 
 	df = pd.read_csv('image_names.csv')
-	df = df.sample(frac=1).reset_index(drop=True)
-	df = df.astype({'label': 'str'})
+	train_df, val_df = train_test_split(df, test_size=split)
+	train_df = train_df.reset_index(drop = True)
+	val_df = val_df.reset_index(drop = True)
+    
+	print(val_df)
+    
+	training_gen = DataGenerator(file_index = df)
+	val_gen = DataGenerator(file_index = df)
+    
 
-	training_gen = img_gen.flow_from_dataframe(df, data_dir, 
-	                                                x_col = 'file', y_col = 'label',
-	                                                subset = 'training' , shuffle = True, 
-	                                        class_mode = 'binary', batch_size = 256)
+    
+# 	if small_sample:
+# 		val_gen = val_gen.flow_from_dataframe(df, data_dir, 
+# 	                                                x_col = 'file', y_col = 'label',
+# 	                                                subset = 'validation' , shuffle = True, 
+# 	                                        class_mode = 'binary', batch_size = 256, seed = seed)
 
-	df = pd.read_csv('image_names.csv')
-	df = df.sample(frac=1).reset_index(drop=True)
+# 	else:
+# 		val_gen = img_gen.flow_from_dataframe(df, data_dir, 
+# 	                                                x_col = 'file', y_col = 'label',
+# 	                                                subset = 'validation' , shuffle = True, 
+# 	                                        class_mode = 'binary', batch_size = 256, seed= seed)
 
-	df = df.astype({'label': 'str'})
-
-	if small_sample:
-		val_gen = val_gen.flow_from_dataframe(df, data_dir, 
-	                                                x_col = 'file', y_col = 'label',
-	                                                subset = 'validation' , shuffle = True, 
-	                                        class_mode = 'binary', batch_size = 256)
-
-	else:
-		val_gen = img_gen.flow_from_dataframe(df, data_dir, 
-	                                                x_col = 'file', y_col = 'label',
-	                                                subset = 'validation' , shuffle = True, 
-	                                        class_mode = 'binary', batch_size = 256)
 	return training_gen, val_gen

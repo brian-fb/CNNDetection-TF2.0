@@ -1,14 +1,17 @@
 import math
 import os
 import numpy as np
-import random
+from random import random
 import cv2
 from PIL import Image
 from tensorflow.keras.utils import Sequence
+from scipy.ndimage import gaussian_filter
     
 def data_augment(img, opt):
     img = np.array(img)
-
+    img = random_crop(img)
+    img = random_hflip(img)
+    
     if random() < opt['blur_prob']:
         sig = sample_continuous(opt['blur_sig'])
         gaussian_blur(img, sig)
@@ -20,6 +23,20 @@ def data_augment(img, opt):
 
     return img
 
+def random_hflip(img, prob=0.5):
+    
+    if random() < 0.5:
+        img = cv2.flip(img,1)
+     
+    return img
+
+def random_crop(img, size=224):
+    h, w = img.shape[:2]
+    y = np.random.randint(0, h-size)
+    x = np.random.randint(0, w-size)
+    img = img[y:y+size, x:x+size, :]
+
+    return img
 
 def sample_continuous(s):
     if len(s) == 1:
