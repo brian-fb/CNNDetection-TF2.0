@@ -20,10 +20,9 @@ from Data.data_import import image_generator
 
 def train(data_dir, train_split, val_split, small_sample = False, checkpoint = None, 
 		save_path = 'train_model/cp-{epoch:d}.ckpt', batch_size = 256, epoch = 30, start_epoch = 0, seed = None):
-	train_gen, val_gen = image_generator(train_split = train_split, val_split = val_split, 
+	train_gen, val_gen = image_generator(train_split = train_split, val_split = val_split, split = train_split,
 										data_dir = data_dir, small_sample = small_sample, seed = seed)
-    
-	print(len(train_gen))
+
 
 	base_model = applications.ResNet50(weights='imagenet', include_top=False)  
 	#base_model = applications.xception.Xception(weights='imagenet', include_top=False, input_shape=[resize_H,resize_W,channel]) 
@@ -54,6 +53,6 @@ def train(data_dir, train_split, val_split, small_sample = False, checkpoint = N
 
 	model.compile(optimizer=optimizer,loss=loss,metrics=['accuracy'])
 	steps = len(train_gen)
-	model.fit(x = train_gen, validation_data = val_gen, epochs=epoch, shuffle = True, batch_size = batch_size,
+	model.fit(x = train_gen, validation_data =val_gen, epochs=epoch, shuffle = True, batch_size = batch_size,
 	 steps_per_epoch = steps, callbacks = [cp_callback], initial_epoch= start_epoch)
 
