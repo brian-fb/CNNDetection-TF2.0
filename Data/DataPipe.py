@@ -16,11 +16,11 @@ class DataGenerator(Sequence):
         self.batch_size = batch_size
         self.shuffle = shuffle
         self.on_epoch_end()
-        self.opt = {'blur_prob':0.5,
-                    'blur_sig':[0.5],
-                    'jpg_prob':0.5,
+        self.opt = {'blur_prob':0.1,
+                    'blur_sig':[0, 3],
+                    'jpg_prob':0.1,
                     'jpg_method':['cv2'],
-                    'jpg_qual':[75],
+                    'jpg_qual':[30,100],
                     'rz_interp':'bilinear',
                     'loadSize':256
                   }

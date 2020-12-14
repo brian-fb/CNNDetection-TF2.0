@@ -2,6 +2,7 @@ import math
 import os
 import numpy as np
 from random import random
+from random import choice
 import cv2
 from PIL import Image
 from tensorflow.keras.utils import Sequence
