@@ -1,8 +1,18 @@
 from trainer import train
-
+import argparse
 #specify checkpoint path and start epoch. Seed for debugging.
 checkpt_path = None
-start = 0
 
-train(train_dir = '../Copy_of_progan_train/train/', val_dir = '../progan_val/',  train_split = 0.1, val_split = 0.0001, small_sample = False, checkpoint = checkpt_path, 
-	start_epoch = start, batch_size = 64, epoch = 30, seed = 8)
+parser = argparse.ArgumentParser()
+parser.add_argument("--train_dir",type=str,default='../Copy_of_progan_train/train/')
+parser.add_argument("--val_dir",type=str,default='../progan_val/')
+parser.add_argument("--small_sample",type=bool,default=False)
+parser.add_argument("--checkpoint",type=str,default=None)
+parser.add_argument("--start_epoch",type=int,default=0)
+parser.add_argument("--batch_size",type=int,default=64)
+parser.add_argument("--epoch",type=int,default=30)
+
+args = parser.parse_args()
+
+train(train_dir = args.train_dir, val_dir = args.val_dir, small_sample = args.small_sample, checkpoint = args.checkpoint,
+	start_epoch = args.start_epoch, batch_size = args.batch_size, epoch = args.epoch, seed = 8)
