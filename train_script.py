@@ -11,6 +11,7 @@ parser.add_argument("--checkpoint",type=str,default=None)
 parser.add_argument("--start_epoch",type=int,default=0)
 parser.add_argument("--batch_size",type=int,default=64)
 parser.add_argument("--epoch",type=int,default=30)
+parser.add_argument("--train_index", type=str, default=)
 
 args = parser.parse_args()
 
