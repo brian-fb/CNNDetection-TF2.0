@@ -11,9 +11,11 @@ parser.add_argument("--checkpoint",type=str,default=None)
 parser.add_argument("--start_epoch",type=int,default=0)
 parser.add_argument("--batch_size",type=int,default=64)
 parser.add_argument("--epoch",type=int,default=30)
-parser.add_argument("--train_index", type=str, default=)
+parser.add_argument("--train_index", type=str, default='Img_index/train/progan_train.csv')
+parser.add_argument("--val_index", type=str, default='Img_index/val/progan_val.csv')
 
 args = parser.parse_args()
 
-train(train_dir = args.train_dir, val_dir = args.val_dir, small_sample = args.small_sample, checkpoint = args.checkpoint,
+train(train_dir = args.train_dir, val_dir = args.val_dir, train_idx = args.train_index, val_idx = args.val_index,
+	small_sample = args.small_sample, checkpoint = args.checkpoint,
 	start_epoch = args.start_epoch, batch_size = args.batch_size, epoch = args.epoch, seed = 8)

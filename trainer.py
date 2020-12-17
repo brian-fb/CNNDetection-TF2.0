@@ -2,12 +2,12 @@ import tensorflow as tf
 from Data.data_import import image_generator
 from Network.Det_RN50 import Det_RN50
 
-def train(train_dir, val_dir,train_idx,val_idx small_sample = False,
+def train(train_dir, val_dir,train_idx,val_idx, small_sample = False,
 		checkpoint = None,save_path = 'train_model/model5-cp-{epoch:d}.ckpt',
 				batch_size = 64, epoch = 30, start_epoch = 0, seed = None):
 
 	train_gen, val_gen = image_generator(train_dir = train_dir, val_dir = val_dir, train_index=train_idx,
-										 val_index=val_idx small_sample = small_sample, seed = seed, batch_size = batch_size)
+										 val_index=val_idx, batch_size = batch_size)
 
 	model = Det_RN50()
 	
