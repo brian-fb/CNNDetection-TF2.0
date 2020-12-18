@@ -49,6 +49,8 @@ Available Arguments:
 
 ```--val_index``` Path to validation set index csv file (default to `Img_index/val/progan_val.csv`)
 
+```--save_path``` Path to save model. Model will be save as `save_path-cp-{epoch:d}.ckpt`
+
 ```--checkpoint``` Path to the checkpoint to restore model (default to `None`)
 
 ```--start_epoch``` The starting epoch of training (default to 0)
