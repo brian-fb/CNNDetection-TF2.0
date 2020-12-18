@@ -38,6 +38,7 @@ To start a model training, please download at least the whole [training set](htt
 Here we provide 
 ```
 python train_script.py [Arguments] 
+
 ```
 Available Arguments:
 
@@ -49,7 +50,13 @@ Available Arguments:
 
 ```--val_index``` Path to validation set index csv file (default to `Img_index/val/progan_val.csv`)
 
-```--checkpoint``` Path to the checkpoint to restore model (default to ```None```)
+```--checkpoint``` Path to the checkpoint to restore model (default to `None`)
+
+```--start_epoch``` The starting epoch of training (default to 0)
+
+```--epoch``` Number of epochs to train the model (default 30)
+
+```--batch_size``` Number of samples per batch (default 64)
 
 
 ## (4) Model Evaluation
