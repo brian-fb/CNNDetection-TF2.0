@@ -38,7 +38,6 @@ To start a model training, please download at least the whole [training set](htt
 Here we provide 
 ```
 python train_script.py [Arguments] 
-
 ```
 Available Arguments:
 
