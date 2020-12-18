@@ -36,10 +36,22 @@ For sources that contains multiple classes like ProGAN, images from different cl
 To start a model training, please download at least the whole [training set](https://drive.google.com/file/d/1iVNBV0glknyTYGA9bCxT_d0CVTOgGcKh/view?usp=sharing), validation set is optional.
 
 Here we provide 
+```
+python train_script.py [Arguments] 
 
 ```
+Available Arguments:
 
-```
+```--train_dir``` Path to set directory (default to `../Copy_of_progan_train/train/`)
+
+```--val_dir``` Path to validation set directory (default to `../progan_val/`)
+
+```--train_index``` Path to training set index csv file (default to `Img_index/train/progan_train.csv`)
+
+```--val_index``` Path to validation set index csv file (default to `Img_index/val/progan_val.csv`)
+
+```--checkpoint``` Path to the checkpoint to restore model (default to `python None`)
+
 
 ## (4) Model Evaluation
 
