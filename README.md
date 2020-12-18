@@ -38,7 +38,6 @@ To start a model training, please download at least the whole [training set](htt
 Here we provide 
 ```
 python train_script.py [Arguments] 
-
 ```
 Available Arguments:
 
@@ -50,7 +49,7 @@ Available Arguments:
 
 ```--val_index``` Path to validation set index csv file (default to `Img_index/val/progan_val.csv`)
 
-```--checkpoint``` Path to the checkpoint to restore model (default to `python None`)
+```--checkpoint``` Path to the checkpoint to restore model (default to ```python None```)
 
 
 ## (4) Model Evaluation
