@@ -1,0 +1,9 @@
+numpy==1.18.5
+opencv-python==4.4.0.46
+pandas==1.1.4
+Pillow==7.2.0
+scikit-image==0.16.2
+scikit-learn
+scipy==1.4.1
+tensorflow==2.2.0
+tqdm==4.47.0
