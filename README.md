@@ -33,9 +33,9 @@ Our whole test set contains images generated from 13 image generative models, in
 For sources that contains multiple classes like ProGAN, images from different classes are organized in separate subdirectories similar to training set.
 
 ## (3) Model training
-To start a model training, please download at least the whole [training set](https://drive.google.com/file/d/1iVNBV0glknyTYGA9bCxT_d0CVTOgGcKh/view?usp=sharing), validation set is optional.
+To start a actual model training, please download at least the whole [training set](https://drive.google.com/file/d/1iVNBV0glknyTYGA9bCxT_d0CVTOgGcKh/view?usp=sharing), validation set is optional.
 
-Here we provide 
+Here we provide the code instruction for model training:
 ```
 python train_script.py [Arguments] 
 ```
@@ -55,24 +55,24 @@ Available Arguments:
 
 ```--start_epoch``` The starting epoch of training (default to 0)
 
-```--epoch``` Number of epochs to train the model (default 30)
+```--epoch``` Number of epochs to train the model (default to 30)
 
-```--batch_size``` Number of samples per batch (default 64)
+```--batch_size``` Number of samples per batch (default to 64)
 
 
 ## (4) Model Evaluation
 
 ### Download our pre-trained models:
 
-| Model name    | Trained on       | Train-time Data Augmentation |
-| :------------ | :--------------- | ---------------------------- |
-| Model-2-class | 2-class Pro-GAN  | Blur: 0.5         JPEG: 0.5  |
-| Model-8-class | 8-class Pro-GAN  | Blur: 0.5         JPEG: 0.5  |
-| Model1        | 20-class Pro-GAN | Blur: N/A        JPEG: N/A   |
-| Model2        | 20-class Pro-GAN | Blur: 0.5         JPEG: N/A  |
-| Model3        | 20-class Pro-GAN | Blur: N/A        JPEG: 0.5   |
-| Model4        | 20-class Pro-GAN | Blur: 0.5         JPEG: 0.5  |
-| Model5        | 20-class Pro-GAN | Blur: 0.1         JPEG: 0.1  |
+| Model name                                                   | Trained on       | Train-time Data Augmentation |
+| :----------------------------------------------------------- | :--------------- | ---------------------------- |
+| [Model-2-class](https://drive.google.com/drive/folders/1n1mcXl_1lJTKK-FV3blK38Z2M_An7Wtd?usp=sharing) | 2-class Pro-GAN  | Blur: 0.5         JPEG: 0.5  |
+| [Model-8-class](https://drive.google.com/drive/folders/11D3K8ZSi8XTmBX2weBZDmUONm6RuQetn?usp=sharing) | 8-class Pro-GAN  | Blur: 0.5         JPEG: 0.5  |
+| [Model1](https://drive.google.com/drive/folders/1tVS-0Y7ATZg1wp73K_33gkPEBa0xEzfe?usp=sharing) | 20-class Pro-GAN | Blur: N/A        JPEG: N/A   |
+| [Model2](https://drive.google.com/drive/folders/10OJ_336HLpYKJxiTyGrXZpFtZMb7FLnG?usp=sharing) | 20-class Pro-GAN | Blur: 0.5         JPEG: N/A  |
+| [Model3](https://drive.google.com/drive/folders/1lX6GY-bD35OQzocLjd0kNYz_1gPzcJOH?usp=sharing) | 20-class Pro-GAN | Blur: N/A        JPEG: 0.5   |
+| [Model4](https://drive.google.com/drive/folders/1Ux-5bynjckiRdZpfePsMbfHKhpAwceJ4?usp=sharing) | 20-class Pro-GAN | Blur: 0.5         JPEG: 0.5  |
+| [Model5](https://drive.google.com/drive/folders/1uE4enOLz2J3ceQVoV9CpUdl23uptuz_c?usp=sharing) | 20-class Pro-GAN | Blur: 0.1         JPEG: 0.1  |
 
 ### Quick test
 
