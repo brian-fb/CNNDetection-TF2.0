@@ -7,6 +7,7 @@ from PIL import Image
 from tensorflow.keras.utils import Sequence
 from Data.DataAug import data_augment
 
+# Restructured train-time data generator
 class DataGenerator(Sequence):
 
     def __init__(self, file_index,root_dir='../e4040-proj-data/',  batch_size=256, shuffle=True,blur_prob=0,jpeg_prob=0):
@@ -50,6 +51,7 @@ class DataGenerator(Sequence):
         imgs = imgs / 255.0  
         return imgs
 
+# Restructured test-time data generator
 class TestDataGenerator(Sequence):
 
     def __init__(self, file_index,root_dir='../e4040-proj-data/',  batch_size=256, shuffle=True):

@@ -1,6 +1,5 @@
 import tensorflow as tf
 import pandas as pd
-from sklearn.model_selection import train_test_split
 from Data.DataPipe import DataGenerator
 
 # Use small_sample to choose if we want to split the whole data set into two exclusive training/validation set.
@@ -8,12 +7,12 @@ def image_generator(train_dir = '../e4040-proj-data/', val_dir = '../progan_val/
 
 	df = pd.read_csv(train_index)
 
-
 	#train_df, val_df = train_test_split(df, test_size=split)
-	train_df = df.sample(frac=1).reset_index(drop = True)
+	train_df = df.sample(frac=1).reset_index(drop = True)   # Firstly shuffle the whole data index to ensure unbiased training
 	
 	if val_dir == 'None' or val_index == 'None':
 		val_gen = None
+
 	else:
 
 		val_df = pd.read_csv(val_index)
