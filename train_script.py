@@ -21,7 +21,7 @@ args = parser.parse_args()
 
 def train(train_dir, val_dir,train_idx,val_idx, small_sample = False,
 		checkpoint = None,save_path = 'train_model/model5-cp-{epoch:d}.ckpt',
-				batch_size = 64, epoch = 30, start_epoch = 0, seed = None, blur_prob, jpeg_prob):
+				batch_size = 64, epoch = 30, start_epoch = 0, seed = None, blur_prob =0, jpeg_prob=0):
 
 	train_gen, val_gen = image_generator(train_dir = train_dir, val_dir = val_dir, train_index=train_idx,
 										 val_index=val_idx, batch_size = batch_size, blur_prob=blur_prob, jpeg_prob=jpeg_prob)

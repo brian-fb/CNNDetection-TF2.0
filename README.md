@@ -47,7 +47,7 @@ Available Arguments:
 
 ```--train_index``` Path to training set index csv file (default to `Img_index/train/progan_train.csv`)
 
-```--val_index``` Path to validation set index csv file (default to `Img_index/val/progan_val.csv`)
+```--val_index``` Path to validation set index csv file. Put 'None' to train without validation. (default to `Img_index/val/progan_val.csv`)
 
 ```--save_path``` Path to save model. Model will be save as `save_path-cp-{epoch:d}.ckpt`
 
